@@ -22,7 +22,7 @@ function App() {
           count is {count}
         </button>
         <p>
-          This Vite Code is used for the CI/CD pipeline 
+          This Vite Code is used for the CI/CD pipeline with automatic trigger jenkins pipeline
         </p>
       </div>
       <p className="read-the-docs">
