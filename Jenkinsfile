@@ -21,6 +21,13 @@ pipeline {
               }
             }
         }
+        stage('OWASP dependency Check') {
+            steps {
+                    dependencyCheck additionalArguments: '--scan ./   ', odcInstallation: 'DC'
+                   dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+                
+            }
+        }
         stage('docker bulid -tag & push') {
             steps {
                 script{
