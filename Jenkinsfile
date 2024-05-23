@@ -17,10 +17,8 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonar-server') {
                     sh"cd vite-project"
-                    sh"$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=vito-app -Dsonar.projectKey=vito-app"
-                    
+                    sh"$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=vito-app -Dsonar.projectKey=vito-app"    
               }
-               
             }
         }
         stage('docker bulid -tag & push') {
@@ -29,10 +27,8 @@ pipeline {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
                           sh "docker build -t vitoapp vite-project/."
                           sh "docker tag vitoapp shubhamshinde2025/vitoapp:v1"
-                          sh "docker push shubhamshinde2025/vitoapp:v1"
-                    
-                }
-                    
+                          sh "docker push shubhamshinde2025/vitoapp:v1"  
+                }    
                 }
             }
         }
@@ -54,8 +50,7 @@ pipeline {
                          
                 }
                     
-                }
-                
+                }   
             }
         }
         
